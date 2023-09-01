@@ -361,3 +361,4 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/MapperExample/DataContext-31b449e3-def4-4149-ab83-bba13c76e34c.db
