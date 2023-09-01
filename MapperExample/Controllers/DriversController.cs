@@ -9,6 +9,7 @@ using MapperExample.Data;
 using MapperExample.Models;
 using MapperExample.Models.DTO.OutGoing;
 using AutoMapper;
+using MapperExample.Models.DTO.Driver;
 
 namespace MapperExample.Controllers
 {
@@ -27,13 +28,15 @@ namespace MapperExample.Controllers
 
         // GET: api/Drivers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Driver>>> GetDriver()
+        public async Task<ActionResult<IEnumerable<DriverDTO>>> GetDriver()
         {
           if (_context.Driver == null)
           {
               return NotFound();
           }
-            return await _context.Driver.ToListAsync();
+            var data =  await _context.Driver.ToListAsync();
+            
+            return Ok(_mapper.Map<IEnumerable<DriverDTO>>(data));
         }
 
         // GET: api/Drivers/5

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MapperExample.Models.DTO.Driver;
 using MapperExample.Models.DTO.OutGoing;
 
 namespace MapperExample.Models.Profiles
@@ -18,6 +19,19 @@ namespace MapperExample.Models.Profiles
                     opt => opt.MapFrom(src => src.DriverNumber))
                 .ForMember(dest => dest.DateAdded,
                     opt => opt.MapFrom(src =>  DateTime.Now));
+
+            CreateMap<Driver, DriverDTO>()
+                 .ForMember(dest => dest.Id,
+                    opt => opt.MapFrom(src => src.Id))
+                .ForMember(dest => dest.FirstName,
+                    opt => opt.MapFrom(src => src.FirstName))
+                .ForMember(dest => dest.Lastname,
+                    opt => opt.MapFrom(src => src.Lastname))
+                .ForMember(dest => dest.DriverNumber,
+                    opt => opt.MapFrom(src => src.DriverNumber))
+                .ForMember(dest => dest.DateAdded,
+                    opt => opt.MapFrom(src => DateTime.Now))
+                ;
 
         }
     }
